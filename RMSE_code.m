@@ -73,7 +73,7 @@ for i = 1:length(kd_vec)
    % tracking errors (RMSE_vec).
     [kp_vec_use, RMSE_vec] = RMSE_knee(kp_vec, binary_vec); 
 
-RMSE{i} = [kp_vec_use, RMSE_vec]; % Save the data in a cell per kd-value 
+RMSE{i} = [kp_vec_use, RMSE_vec']; % Save the data in a cell per kd-value 
 % !! SAVE THIS AS RMSE_Knee.mat FROM YOUR WORKSPACE TO USE IN THE FIGURE_CREATION !!
 end
 
