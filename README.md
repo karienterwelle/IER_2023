@@ -17,18 +17,18 @@ An installation manual is also provided. Be sure to also check the 'Simulink' ex
 
 ### Downloading files
 In this repository you will find the Matlab and Simulink files necessary for obtaining the presented results in the paper. It is best to download all the files before starting with running, since some call upon others. The following files are presented with the following functions: 
-- Lokomat_Simulation.slx: This file contains the simulink model of the PD-controller and the Lokomat system. It is called upon and loaded within the necessary Matlab files, but some settings will need to be altered in the model while going through the other files (More on that in a later section).
-    - A SimScape model (previously SimMechanics) model of the right leg of the LOKOMAT orthosis. The model supports the rotations of the hip joint through two prismatic actuators and the rotation of the knee joint through a rotary actuator.
+- Lokomat_Simulation.slx: This file contains the simulink model of the PD-controller and the Lokomat system. It is called upon and loaded within the necessary Matlab files, but some settings will need to be altered in the model while going through the other files (More on that in a later section). The Lokomat_Simulation file contains: 
+    - A SimScape model (previously SimMechanics) of the right leg of the LOKOMAT orthosis. The model supports the rotations of the hip joint through two prismatic actuators and the rotation of the knee joint through a rotary actuator.
     - A Desired Trajectory block defines the desired angles of the knee flexion/extension and hip flexion/extension and abduction/adduction. 
     - An Inverse Kinematic block provides equations to determine the traveling amount of prismatic actuators (internal and external), given the hip angles for flexion/extension and abduction/adduction.
     - A Controller block with a PD-controller code within.
 - Step_Response.m: This file contains the Matlab code for obtaining the PD-controller parameters that result in an adequate step response. It calls upon the two matlab function files: Step_Hip.m and Step_Knee.m
-- RMSE.m: This file contains the Matlab code for obtaining the RMSE in trajectory tracking for the previously determined range of PD-parameters with adequate step response. It calls upon the matlab function files: RMSE_hip.m and RMSE_knee.m
+- RMSE.m: This file contains the Matlab code for obtaining the RMSE in trajectory tracking for the previously determined range of PD-parameters with adequate step response. Be aware output is in radians. In the figure_creation file it is converted to degrees, which is the unit used in the report. 
 - Figure_Creation.m: This matlab file contains the script necessary for obtaining the figures presented in the report. It calls on the data files created by Step_Response.mat and RMSE.mat. 
 
 !! Running of the Step_Response.m and RMSE.m files will take a long time (multiple hours). In case time is limited, the data files resulting from Step_Response.m and RMSE.m are already provided in this repository !! 
 
-The pre-made result files necessary to run Figure_Creation.m are all of the type 'MATLAB data': 
+The pre-made result files necessary to run Figure_Creation.m are all of the type 'MATLAB data', do not confuse them with the matlab fuction files with similar names: 
 - RMSE_Hip.mat
 - RMSE_Knee.mat
 - Stab_Reg_Hip.mat
