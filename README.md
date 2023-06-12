@@ -2,6 +2,13 @@
 
 The research project, for the couse ME41125, titled: "Modulating PD-controller parameters allowing for differences in trajectory tracking error: LOKOMAT rehabilitation system.", was performed using the code and models in this repository. It derives a range of PD-parameters that result in an adequate step response (within 10% offset or overshoot) for the knee and hip joint of the LOKOMAT rehabilitation system. It then derives the Root Mean Square Error (RMSE) in trajectory tracking for exemplary trajectories of knee flexion and hip abduction and flexion, for the previously obtaind PD-parameters.
 
+## Methodology
+
+The created code / model consists of a couple of sections. Methodology and theory behind the created files is further explained in the file "Paper_LOKOMAT" which contains the research paper related to this repository. A simulink model of the gait rehabilitation robot LOKOMAT, created by Manzari et al. is used. For this model, a PD-controller block is implemented in simulink, for which the kp and kd values can be adjusted through inputs. A Matlab code running through different ranges of kp and kd was created to test the effect of these changed paramters on both the step response and the trajectory tracking. 
+For the step reponse, a step amplitude of either 1 degree or 0.5 is fed into the controller as desired trajectory. The overshoot and offset is determined by analysis of the output data from the SIMULINK simulation. Then it is determined if the step response is adequate (within 10% overshoot or offset)
+For trajectory tracking, a predetermined trajectory by Manzari et al. is used as desired trajectory. A Matlab script was created that determines the RMSE between this predetermined desired trajectory and the actual trajectory, based on outputs from the SIMULINK simulation. 
+Figures to intuitively display the step response data and the RMSE results are created. 
+
 ## Getting Started
 
 These instructions will give you a copy of the project up and running on your local machine for development and testing purposes.
